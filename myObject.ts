@@ -1,8 +1,8 @@
-const User = {
-    name: "ankit",
-    email: "ankit@gmail.com"
-    , isActive: true
-}
+// const User = {
+//     name: "ankit",
+//     email: "ankit@gmail.com"
+//     , isActive: true
+// }
 
 
 // function createUser({ name: string, isPaid: boolean }) {
@@ -22,17 +22,40 @@ createCourse();
 
 // type alias 
 
+// type User = {
+//     name: string,
+//     email: string,
+//     isActive: boolean
+// }
+
+// //now the type is User for the user which will have all the thing which we defined already above.
+// function createUser(user: User): User {
+//     return { name: "", email: "", isActive: true }
+// }
+
+// createUser({ name: "", email: "", isActive: true })
+
 type User = {
+    readonly _id: string,   //this can't be mainupulated
     name: string,
     email: string,
-    isActive: boolean
+    isActive: boolean,
+    cardCredentials?: string  //this means we can provide or we can't its up to us it is optional
 }
 
-//now the type is User for the user which will have all the thing which we defined already above.
-function createUser(user: User): User {
-    return { name: "", email: "", isActive: true }
+let myUser: User = { _id: "12345", name: "ankit", email: "ankit@gmail.com", isActive: false, cardCredentials: "haha" }
+
+myUser.email = "abc@gmail.com"  //this is allowed
+// myUser._id = "djsns"   ///this will give error as _id is readonly
+
+type first = {
+    first_name: string
+}
+type last = {
+    last_name: string
 }
 
-createUser({ name: "", email: "", isActive: true })
+type username = first & last;  //we can do like this as well when we create a variable with username type than we have to make an object with the firstname and the lastname
 
+let name: username = { first_name: "ankit", last_name: "nishad" }
 export { };
