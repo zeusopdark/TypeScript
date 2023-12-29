@@ -9,4 +9,4 @@ const hitesh: User = {
     email: "ankit@gmail.com",
     userId: 22121,
     startTrial: () => { return "" }
-}
+} 
